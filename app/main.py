@@ -1,16 +1,9 @@
-from typing import Optional
-
 from fastapi import FastAPI, HTTPException
 
 from .weirdtext.decoder import decode
 from .weirdtext.encoder import encode
 
 app = FastAPI()
-
-
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
 
 
 @app.get("/v1/encode", response_model=str)
