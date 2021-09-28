@@ -2,8 +2,8 @@ from typing import Optional
 
 from fastapi import FastAPI, HTTPException
 
-from .lib.decoder import decode
-from .lib.encoder import encode
+from .weirdtext.decoder import decode
+from .weirdtext.encoder import encode
 
 app = FastAPI()
 
