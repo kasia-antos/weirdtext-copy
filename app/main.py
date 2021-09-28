@@ -3,7 +3,7 @@ from fastapi import FastAPI, HTTPException
 from .weirdtext.decoder import decode
 from .weirdtext.encoder import encode
 
-app = FastAPI()
+app = FastAPI(name="WeirdText")
 
 
 @app.get("/v1/encode", response_model=str)
