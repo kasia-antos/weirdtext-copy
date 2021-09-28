@@ -13,3 +13,4 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "ka-weirdtext-backend"
           heroku_email: "kat.antos96@gmail.com"
+          usedocker: true
