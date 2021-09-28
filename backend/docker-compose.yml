@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  backend:
+    build:
+      context: .
+    container_name: weirdtext_backend
+    ports:
+      - 8000:80

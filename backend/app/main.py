@@ -1,0 +1,26 @@
+from typing import Optional
+
+from fastapi import FastAPI, HTTPException
+
+from .lib.decoder import decode
+from .lib.encoder import encode
+
+app = FastAPI()
+
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+
+@app.get("/v1/encode", response_model=str)
+def encode_text(text: str) -> str:
+    return encode(text)
+
+
+@app.get("/v1/decode", response_model=str)
+def decode_text(text: str) -> str:
+    try:
+        return decode(text)
+    except ValueError as e:
+        raise HTTPException(status_code=422, detail=str(e))
