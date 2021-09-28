@@ -22,7 +22,7 @@ jobs:
       if: always()
       run: |
         python -m pip install --upgrade pip
-        pip install flake8, black, pytest
+        pip install flake8 black pytest
       continue-on-error: false
     
     - name: Test with pytest
@@ -30,6 +30,7 @@ jobs:
       run: pytest
         
   deploy:
+    needs: [build] 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
