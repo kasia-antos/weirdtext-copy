@@ -52,7 +52,10 @@ def encode(text: str) -> str:
 
     encoded_words = sorted(encodable_words, key=str.casefold)
     encoded_text = (
-        "\n—weird—\n" + "".join(letters) + "\n—weird—\n" + " ".join(encoded_words)
+        "\n—weird—\n"
+        + "".join(letters)
+        + "\n—weird—\n"
+        + " ".join(encoded_words)
     )
 
     return encoded_text

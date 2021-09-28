@@ -1,4 +1,10 @@
-from ..decoder import sort_inside, raise_if_true, create_mapper, decode, DecodingError
+from ..decoder import (
+    sort_inside,
+    raise_if_true,
+    create_mapper,
+    decode,
+    DecodingError,
+)
 import pytest
 
 
