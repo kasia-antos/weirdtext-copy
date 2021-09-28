@@ -4,7 +4,33 @@ on:
       - main
 
 jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dev packages
+      if: always()
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 black pytest
+      continue-on-error: false
+    
+    - name: Test with pytest
+      if: always()
+      run: pytest
+        
   deploy:
+    needs: [build] 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
